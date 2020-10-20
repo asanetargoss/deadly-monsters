@@ -52,7 +52,7 @@ public class EntityStranger extends EntityMob {
     
     public EntityStranger(World worldIn) {
         super(worldIn);
-        setSize(1.0F, 1.5F);
+        setSize(0.6F, 1.5F);
     }
 
     @Override

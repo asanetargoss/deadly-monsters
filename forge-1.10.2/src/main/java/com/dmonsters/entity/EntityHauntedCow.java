@@ -62,7 +62,7 @@ public class EntityHauntedCow extends EntityMob
     public EntityHauntedCow(World worldIn)
     {
         super(worldIn);
-        this.setSize(0.9F, 1.4F);
+        this.setSize(0.6F, 1.4F);
     }
     
     protected void applyEntityAttributes() {

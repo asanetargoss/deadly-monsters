@@ -35,7 +35,7 @@ public class EntityTopielec extends EntityMob {
     
     public EntityTopielec(World worldIn) {
         super(worldIn);
-        this.setSize(1F, 1F);
+        this.setSize(0.6F, 1F);
     }
     
     @Override

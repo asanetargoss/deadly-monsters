@@ -51,7 +51,7 @@ public class EntityBaby extends EntityMob {
 
     public EntityBaby(World worldIn) {
         super(worldIn);
-        setSize(0.9F, 1.95F);
+        setSize(0.6F, 1.95F);
     }
 
     @Override
