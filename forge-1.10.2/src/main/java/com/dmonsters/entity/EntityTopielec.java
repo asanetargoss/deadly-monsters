@@ -2,25 +2,17 @@ package com.dmonsters.entity;
 
 import javax.annotation.Nullable;
 
-import com.dmonsters.ai.EntityAIEntrailAttack;
 import com.dmonsters.ai.EntityAITopielecAttack;
 import com.dmonsters.ai.EntityAITopielecFollowPlayer;
 import com.dmonsters.ai.EntityAITopielecIdle;
 import com.dmonsters.ai.EntityAIWaterMobNearestPlayer;
 import com.dmonsters.main.MainMod;
-import com.dmonsters.main.ModConfig;
 import com.dmonsters.main.ModSounds;
 
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.passive.EntityWaterMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class EntityTopielec extends EntityMob {

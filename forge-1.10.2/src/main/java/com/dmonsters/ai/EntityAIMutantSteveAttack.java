@@ -3,52 +3,26 @@ package com.dmonsters.ai;
 import java.util.Random;
 
 import com.dmonsters.entity.EntityMutantSteve;
-import com.dmonsters.main.ModSounds;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityAIMutantSteveAttack extends EntityAIAttackMelee {
+public class EntityAIMutantSteveAttack extends DeadlyMonsterAIMeelee {
     private int raiseArmTicks;
     private EntityMutantSteve mutantSteve;
-    private double targetPosX;
-    private double targetPosY;
-    private double targetPosZ;
 
     public EntityAIMutantSteveAttack(EntityMutantSteve zombieIn, double speedIn, boolean longMemoryIn) {
         super(zombieIn, speedIn, longMemoryIn);
         this.mutantSteve = zombieIn;
-        //System.out.println("Radek AI initialized");
         this.setMutexBits(7);
-    }
-    
-    @Override
-    public boolean shouldExecute() {
-    	boolean result = super.shouldExecute();
-    	if (result)
-    		System.out.println("Radek AI shouldExecute value: " + result);
-    	return result;
-    }
-    
-    @Override
-    public boolean continueExecuting() {
-    	boolean result = super.continueExecuting();
-    	if (!result)
-    		System.out.println("Radek AI continueExecuting value: " + result);
-    	return result;
     }
 
     @Override
     public void startExecuting() {
         super.startExecuting();
-        System.out.println("Radek AI: start at " + this.attacker.getAttackTarget().getPositionVector());
         this.raiseArmTicks = 0;
     }
 
@@ -79,7 +53,6 @@ public class EntityAIMutantSteveAttack extends EntityAIAttackMelee {
 	        	DestroyAroundMe(2, 0.75F);
         	}
         }
-        //int d = MathHelper.floor_double((double) (this.attacker.rotationYaw * 4.0F / 360) + 0.50) & 3;
     }
     
     private void DestroyAroundMe(int yOffset, float destroyChance) {

@@ -1,11 +1,8 @@
 package com.dmonsters.ai;
 
 import com.dmonsters.entity.EntityBaby;
-import com.dmonsters.main.ModSounds;
 
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-
-public class EntityAIBabyAttack extends EntityAIAttackMelee
+public class EntityAIBabyAttack extends DeadlyMonsterAIMeelee
 {
     private final EntityBaby baby;
     private int raiseArmTicks;

@@ -2,11 +2,8 @@ package com.dmonsters.ai;
 
 import com.dmonsters.entity.EntityTopielec;
 
-import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
 
 public class EntityAITopielecIdle extends EntityAIBase {
     private final EntityTopielec topielec;

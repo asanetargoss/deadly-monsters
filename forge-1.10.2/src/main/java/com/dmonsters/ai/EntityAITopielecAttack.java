@@ -3,21 +3,14 @@ package com.dmonsters.ai;
 import com.dmonsters.entity.EntityTopielec;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 
-public class EntityAITopielecAttack extends EntityAIBase {
+public class EntityAITopielecAttack extends DeadlyMonsterAIBase {
     private final EntityTopielec topielec;
     private final float speed;
-    private BlockPos targetPos;
     private int ticks = 0;
     private EntityPlayerMP playerEntity;
     

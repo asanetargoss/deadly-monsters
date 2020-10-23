@@ -1,11 +1,8 @@
 package com.dmonsters.ai;
 
 import com.dmonsters.entity.EntityFreezer;
-import com.dmonsters.main.ModSounds;
 
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-
-public class EntityAIFreezerAttack extends EntityAIAttackMelee
+public class EntityAIFreezerAttack extends DeadlyMonsterAIMeelee
 {
     private final EntityFreezer freezer;
     private int raiseArmTicks;

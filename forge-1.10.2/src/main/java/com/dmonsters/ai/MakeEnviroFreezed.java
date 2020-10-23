@@ -1,7 +1,5 @@
 package com.dmonsters.ai;
 
-import java.util.Random;
-
 import com.dmonsters.entity.EntityFreezer;
 
 import net.minecraft.block.material.Material;
@@ -9,8 +7,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.init.Blocks;
-import net.minecraft.pathfinding.PathNavigateGround;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -47,11 +43,6 @@ public class MakeEnviroFreezed extends EntityAIBase
     	BlockPos blockToFreezPos;
     	World worldin = this.theEntity.worldObj;
     	double y = this.theEntity.posY;
-    	float hardness;
-    	float hardnessTreshold = 5;
-    	boolean destroyedBlock = false;
-    	float randomChance = 0;
-    	Random random = new Random();
     	int freeingArea = 0;
     	if (freezerEntity.getAttaking())
     		freeingArea = 2;

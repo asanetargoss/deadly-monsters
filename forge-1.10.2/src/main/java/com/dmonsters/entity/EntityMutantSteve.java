@@ -2,8 +2,6 @@ package com.dmonsters.entity;
 
 import javax.annotation.Nullable;
 
-import com.dmonsters.ai.EntityAIChaseTroughBlocks;
-import com.dmonsters.ai.EntityAIDrowning;
 import com.dmonsters.ai.EntityAIMutantSteveAttack;
 import com.dmonsters.main.MainMod;
 import com.dmonsters.main.ModConfig;
@@ -14,25 +12,23 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.monster.EntityIronGolem;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.item.EntityBoat;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.item.EntityBoat;
 
 public class EntityMutantSteve extends EntityMob {
     private static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.createKey(EntityMutantSteve.class, DataSerializers.BOOLEAN);
@@ -71,7 +67,6 @@ public class EntityMutantSteve extends EntityMob {
 
     @Override
     protected void initEntityAI() {
-    	//this.tasks.addTask(0, new EntityAIDrowning(this));
     	this.tasks.addTask(1, new EntityAIMutantSteveAttack(this, 2.0D, false));
         this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
@@ -80,7 +75,7 @@ public class EntityMutantSteve extends EntityMob {
     }
 
     private void applyEntityAI() {
-    	this.targetTasks.addTask(0, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+    	this.targetTasks.addTask(0, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, true));
     }
 
     @Override

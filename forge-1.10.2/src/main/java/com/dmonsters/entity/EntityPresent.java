@@ -1,14 +1,8 @@
 package com.dmonsters.entity;
 
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Random;
-
 import javax.annotation.Nullable;
 
-import com.dmonsters.ai.EntityAIDrowning;
-import com.dmonsters.ai.EntityAIEntrailAttack;
-import com.dmonsters.ai.EntityAIPresent;
+import com.dmonsters.ai.DeadlyMonsterAIMeelee;
 import com.dmonsters.main.MainMod;
 import com.dmonsters.main.ModBlocks;
 import com.dmonsters.main.ModConfig;
@@ -16,38 +10,23 @@ import com.dmonsters.main.ModSounds;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.MobEffects;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.item.EntityBoat;
 
 public class EntityPresent extends EntityMob {
-    private static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.createKey(EntityPresent.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Boolean> ATTACKING = EntityDataManager.createKey(EntityPresent.class, DataSerializers.BOOLEAN);
-    private PriorityQueue<BlockPos> freezedBlocks = new PriorityQueue(10); 
-    
     public static final ResourceLocation LOOT = new ResourceLocation(MainMod.MODID, "present");
     
     private int cageTicks = 0;
@@ -71,7 +50,7 @@ public class EntityPresent extends EntityMob {
     @Override
     protected void initEntityAI() {
         this.tasks.addTask(1, new EntityAISwimming(this));
-        this.tasks.addTask(2, new EntityAIPresent(this, 1.0D, true));
+        this.tasks.addTask(2, new DeadlyMonsterAIMeelee(this, 1.0D, true));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
@@ -80,7 +59,7 @@ public class EntityPresent extends EntityMob {
     }
 
     private void applyEntityAI() {
-    	this.targetTasks.addTask(0, new EntityAINearestAttackableTarget(this, EntityPlayer.class, false));
+    	this.targetTasks.addTask(0, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, false));
     }
 
     @Override

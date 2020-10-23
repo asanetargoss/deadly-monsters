@@ -1,21 +1,8 @@
 package com.dmonsters.ai;
 
-import java.util.Collections;
-import java.util.List;
-
-import com.dmonsters.entity.EntityTopielec;
-
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
 
 public class EntityAIWaterMobNearestPlayer extends EntityAIBase {
     private EntityCreature owner;
