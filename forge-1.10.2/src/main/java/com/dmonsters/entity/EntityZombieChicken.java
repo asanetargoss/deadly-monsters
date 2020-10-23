@@ -30,7 +30,7 @@ public class EntityZombieChicken extends EntityMob
     public EntityZombieChicken(World worldIn)
     {
         super(worldIn);
-        setSize(0.4F, 0.5F);
+        setSize(0.5F, 0.5F);
     }
     
     protected void applyEntityAttributes() {

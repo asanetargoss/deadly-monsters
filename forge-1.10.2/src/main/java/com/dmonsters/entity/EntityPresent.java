@@ -34,7 +34,7 @@ public class EntityPresent extends EntityMob {
 
     public EntityPresent(World worldIn) {
         super(worldIn);
-        setSize(0.6F, 1.5F);
+        setSize(0.9F, 1.5F);
     }
 
     @Override

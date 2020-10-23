@@ -38,7 +38,7 @@ public class EntityWoman extends EntityMob {
 
     public EntityWoman(World worldIn) {
         super(worldIn);
-        setSize(0.6F, 0.6F);
+        setSize(1.1F, 0.6F);
     }
 
     @Override
